@@ -1,0 +1,324 @@
+/* =========================================================
+   APK yuklab olish sahifasi va bannner
+   ========================================================= */
+
+.download-page .back-link {
+  margin-bottom: 20px;
+}
+
+.install-apk-link {
+  margin-top: 16px;
+}
+
+.apk-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 22px 0;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+  background:
+    linear-gradient(120deg, var(--gold-soft), transparent 70%),
+    var(--panel);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.apk-banner:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.apk-banner-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 14px;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border: 1px solid color-mix(in srgb, var(--gold) 24%, transparent);
+}
+
+.apk-banner div {
+  flex: 1;
+  min-width: 0;
+}
+
+.apk-banner strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 15px;
+  letter-spacing: -0.015em;
+}
+
+.apk-banner p {
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.apk-banner-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+/* ---------- Asosiy karta ---------- */
+
+.download-hero {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(120% 160% at 100% 0%, var(--gold-soft), transparent 55%),
+    var(--hero-gradient);
+  box-shadow: var(--shadow-soft);
+}
+
+.download-app-icon {
+  flex: none;
+}
+
+.download-app-icon img {
+  display: block;
+  width: 112px;
+  height: 112px;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.download-app-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.download-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--green) 34%, transparent);
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.download-app-info h2 {
+  margin-top: 4px;
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: -0.03em;
+}
+
+.download-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.download-btn {
+  margin-top: 14px;
+}
+
+.download-checksum {
+  margin-top: 10px;
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.download-checksum code {
+  font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+  color: var(--text-soft);
+}
+
+/* ---------- Qadamlar ---------- */
+
+.download-steps,
+.download-security,
+.download-alt {
+  margin-top: 22px;
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.download-steps h2,
+.download-alt h2 {
+  font-size: 20px;
+  letter-spacing: -0.025em;
+}
+
+.download-steps ol {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+  list-style: none;
+  counter-reset: download-step;
+}
+
+.download-steps li {
+  display: flex;
+  gap: 14px;
+  counter-increment: download-step;
+}
+
+.download-steps li::before {
+  content: counter(download-step);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  margin-top: 1px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--gold) 34%, transparent);
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.download-steps strong {
+  display: block;
+  font-size: 14px;
+}
+
+.download-steps p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* ---------- Xavfsizlik ---------- */
+
+.download-security {
+  border-color: color-mix(in srgb, var(--green) 26%, var(--line));
+  background:
+    linear-gradient(160deg, var(--green-soft), transparent 60%),
+    var(--panel);
+}
+
+.download-security h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  letter-spacing: -0.025em;
+}
+
+.download-security h2 svg {
+  color: var(--green);
+}
+
+.download-security p {
+  margin-top: 12px;
+  color: var(--text-soft);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.download-checks {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+  list-style: none;
+}
+
+.download-checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.download-checks svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--green);
+}
+
+.download-security .text-link {
+  margin-top: 4px;
+}
+
+/* ---------- Muqobil ---------- */
+
+.download-alt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.download-alt p {
+  margin-top: 6px;
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.download-alt .btn {
+  flex: none;
+}
+
+@media (max-width: 760px) {
+  .download-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+  .download-app-icon img {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+  }
+
+  .apk-banner {
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .apk-banner div {
+    flex-basis: calc(100% - 62px);
+  }
+
+  .apk-banner-action {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .download-steps,
+  .download-security,
+  .download-alt {
+    padding: 20px;
+  }
+
+  .download-alt {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

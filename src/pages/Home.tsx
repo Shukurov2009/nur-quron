@@ -5,6 +5,7 @@ import {
   BookOpen,
   BookOpenCheck,
   CalendarClock,
+  Download,
   GraduationCap,
   Headphones,
   Play,
@@ -182,6 +183,20 @@ export function HomePage() {
       </section>
 
       <InstallPrompt />
+
+      <Link to="/yuklab-olish" className="apk-banner">
+        <span className="apk-banner-icon">
+          <Download size={22} />
+        </span>
+        <div>
+          <span className="eyebrow">Android APK</span>
+          <strong>Nur ilovasini telefonga yuklab oling</strong>
+          <p>To‘g‘ridan-to‘g‘ri o‘rnatish — brauzer menyusisiz, to‘liq ekranda ishlaydi.</p>
+        </div>
+        <span className="apk-banner-action">
+          Yuklab olish <ArrowRight size={16} />
+        </span>
+      </Link>
 
       {continueSurah && settings.lastRead && (
         <Link

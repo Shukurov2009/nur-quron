@@ -25,6 +25,9 @@ const LearnPrayerPage = lazy(() =>
 const SettingsPage = lazy(() =>
   import('./pages/Settings').then((module) => ({ default: module.SettingsPage })),
 )
+const DownloadPage = lazy(() =>
+  import('./pages/Download').then((module) => ({ default: module.DownloadPage })),
+)
 
 function NotFoundPage() {
   return (
@@ -57,6 +60,7 @@ export default function App() {
           <Route path="alifbo" element={<AlphabetPage />} />
           <Route path="namoz" element={<PrayerTimesPage />} />
           <Route path="namozni-organish" element={<LearnPrayerPage />} />
+          <Route path="yuklab-olish" element={<DownloadPage />} />
           <Route path="sozlamalar" element={<SettingsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

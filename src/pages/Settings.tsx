@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Bell,
   Check,
@@ -635,6 +636,9 @@ export function SettingsPage() {
               </div>
             </div>
           )}
+          <Link to="/yuklab-olish" className="btn btn-soft btn-small install-apk-link">
+            <Download size={15} /> Android APK yuklab olish
+          </Link>
         </section>
 
         <section className="settings-card danger-card">
