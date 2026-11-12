@@ -13,3 +13,5 @@ android/app/*.jks
 *.keystore
 *.jks
 *.p12
+
+/apk/
