@@ -1,5 +1,7 @@
 # Nur — Qur’on va namoz yo‘ldoshi
 
+**Jonli sayt:** [https://nur-quron.vercel.app](https://nur-quron.vercel.app)
+
 O‘zbekistonlik foydalanuvchilar uchun zamonaviy Qur’on, yodlash, alifbo va namoz ilovasi. To‘liq 114 sura, oyatma-oyat tarjima, Mishary Rashid Alafasy qiroati, zanjir usulida yodlash, arab alifbosi, joylashuvga mos namoz vaqtlari va namozni o‘rganish bo‘limlari bir joyda.
 
 Ilova **Vite + React + TypeScript** asosida yozilgan, **PWA** sifatida telefonga o‘rnatiladi va **Vercel**ga osongina joylashtiriladi.
@@ -17,7 +19,7 @@ Ilova **Vite + React + TypeScript** asosida yozilgan, **PWA** sifatida telefonga
 - **Namozni o‘rganish** — tahorat va namoz qadam-baqadam, namoz harakatlari rasmlari, duolar (arabcha + talaffuz + tarjima), besh vaqt rakatlari va o‘rganish progressi.
 - **Sozlamalar** — tungi/yorug‘/tizim mavzusi, lotin/kirill, audio tezligi, azon balandligi, joylashuv, hisoblash usuli.
 - **Saqlash** — sozlamalar, yodlangan oyatlar, xatcho‘plar va oxirgi o‘qilgan joy `localStorage`da. Supabase ulansa, akkaunt orqali bulutda sinxronlanadi.
-- **PWA** — oflayn qobiq va ma’lumotlar, bosh ekranga o‘rnatish, yangilanishlarni avtomatik olish.
+- **PWA** — oflayn qobiq va ma’lumotlar, bosh ekranga o‘rnatish, yangilanishlarni avtomatik olish. iOS uchun alohida meta teglar, Android’da tezkor yorliqlar (Qur’on, Yodlash, Namoz) va notch/xavfsiz hudud (safe-area) qo‘llab-quvvatlanadi.
 
 ---
 
@@ -218,9 +220,13 @@ Dev serverni qayta ishga tushiring. Sozlamalar sahifasida akkaunt formasi paydo 
 
 ```bash
 npm i -g vercel
-vercel
+vercel login
 vercel --prod
 ```
+
+Hozirgi production loyiha: `shukurov2009s-projects/nur-quron` → [nur-quron.vercel.app](https://nur-quron.vercel.app).
+
+> **Muhim:** Vercel’dagi npm `rollup` uchun `overrides` bilan to‘g‘ridan-to‘g‘ri dependency birga bo‘lsa, `EOVERRIDE` xatosi beradi. Shuning uchun `rollup` faqat `overrides`da turadi, `devDependencies`da takrorlanmaydi.
 
 ### Deploydan keyin
 
