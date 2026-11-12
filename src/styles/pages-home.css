@@ -1,0 +1,539 @@
+/* =========================================================
+   Bosh sahifa
+   ========================================================= */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
+  gap: clamp(24px, 4vw, 48px);
+  overflow: hidden;
+  padding: clamp(26px, 4vw, 46px);
+  border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line));
+  background: var(--hero-gradient);
+  box-shadow: var(--shadow);
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--gold) 20%, transparent), transparent 34%),
+    radial-gradient(circle at 72% 86%, color-mix(in srgb, var(--green) 26%, transparent), transparent 38%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 26px,
+      color-mix(in srgb, var(--gold) 4%, transparent) 26px 27px
+    );
+  mask-image: radial-gradient(circle at 70% 40%, #000 20%, transparent 78%);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold) 26%, transparent);
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-arabic {
+  margin: 22px 0 0 auto;
+  font-family: var(--font-arabic);
+  font-size: clamp(20px, 2.2vw, 27px);
+  line-height: 1.9;
+  color: var(--gold);
+  text-align: right;
+  direction: rtl;
+}
+
+.hero h1 {
+  margin: 8px 0 14px;
+  font-size: clamp(2.1rem, 4.2vw, 3.65rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  max-width: 14ch;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding-right: 0.05em;
+}
+
+.hero-sub {
+  max-width: 50ch;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.hero-stats strong {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stats span {
+  margin-top: 3px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-side {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 2px;
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.hero-date span {
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.hero-qibla {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px dashed var(--line-strong);
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.hero-qibla:hover {
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+  background: var(--gold-soft);
+}
+
+.qibla-arrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--panel-2);
+  color: var(--gold);
+  font-size: 13px;
+  transform: rotate(45deg);
+}
+
+.hero-qibla > span:last-child {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.hero-qibla small {
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.hero-qibla strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Continue reading ---------- */
+
+.continue-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 18px 0 0;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(100deg, var(--panel-2), transparent);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.continue-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.continue-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 12px;
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.continue-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.continue-card strong {
+  font-size: 13.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.continue-card > svg {
+  margin-left: auto;
+  color: var(--gold);
+  flex: none;
+}
+
+/* ---------- Home grid ---------- */
+
+.home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.daily-card,
+.progress-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+}
+
+.daily-body {
+  position: relative;
+}
+
+.daily-arabic {
+  font-size: clamp(23px, 2.3vw, 30px);
+  line-height: 2;
+  margin: 0 0 12px;
+  text-align: right;
+}
+
+.daily-translation {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+.daily-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+.daily-footer > span {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.progress-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 4px 0 18px;
+}
+
+.big-progress-ring {
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 118px;
+  flex: none;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold) var(--value, 0%), var(--track) 0);
+}
+
+.big-progress-ring::before {
+  content: '';
+  position: absolute;
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  background: var(--panel);
+}
+
+.big-progress-ring {
+  position: relative;
+}
+
+.big-progress-ring > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.05;
+}
+
+.big-progress-ring strong {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.big-progress-ring span {
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.progress-caption {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.progress-ring-wrap p.muted {
+  margin: 5px 0 12px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.mini-stats div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.mini-stats strong {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-stats span {
+  margin-top: 2px;
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* ---------- Features ---------- */
+
+.features-section {
+  margin-top: 38px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.feature-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 74%, transparent);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  background: var(--panel-2);
+}
+
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 6px;
+  border-radius: 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+
+.feature-card strong {
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.feature-card p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.feature-arrow {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.feature-card:hover .feature-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--gold);
+}
+
+.feature-card.accent-green .feature-icon {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.feature-card.accent-gold .feature-icon {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.feature-card.accent-blue .feature-icon {
+  color: var(--blue);
+  background: var(--blue-soft);
+}
+
+/* ---------- Surah preview and quote ---------- */
+
+.surahs-preview {
+  margin-top: 38px;
+}
+
+.surah-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.home-quote {
+  position: relative;
+  margin: 38px 0 10px;
+  padding: 36px 24px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.quote-mark {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.25;
+}
+
+.home-quote p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: clamp(19px, 2.2vw, 25px);
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--text);
+}
+
+.home-quote small {
+  display: block;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

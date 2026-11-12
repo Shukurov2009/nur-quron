@@ -1,0 +1,11 @@
+@import './styles/base.css';
+@import './styles/layout.css';
+@import './styles/components.css';
+@import './styles/pages-home.css';
+@import './styles/pages-surahs-reader.css';
+@import './styles/pages-memorize.css';
+@import './styles/pages-alphabet.css';
+@import './styles/pages-prayer.css';
+@import './styles/pages-learn.css';
+@import './styles/pages-settings.css';
+@import './styles/responsive.css';

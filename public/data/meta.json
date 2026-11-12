@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-11-11T20:00:39.469Z",
+  "surahs": 114,
+  "ayahs": 6236,
+  "reciter": "Mishary Rashid Alafasy",
+  "translation": "Muhammad Sodiq Muhammad Yusuf",
+  "sources": [
+    "https://api.alquran.cloud (Uthmani matn)",
+    "https://quranenc.com (Muhammad Sodiq tarjimasi)",
+    "https://cdn.islamic.network (Mishary Rashid Alafasy audiosi)"
+  ]
+}

@@ -1,0 +1,477 @@
+/* =========================================================
+   Qayta ishlatiladigan komponentlar
+   ========================================================= */
+
+/* ---------- Next prayer card ---------- */
+
+.next-prayer-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+  background: linear-gradient(150deg, var(--panel-2), var(--panel) 70%);
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.next-prayer-card:hover {
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
+  transform: translateY(-2px);
+}
+
+.next-prayer-card::after {
+  content: '';
+  position: absolute;
+  right: -50px;
+  top: -70px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-soft), transparent 68%);
+  pointer-events: none;
+}
+
+.next-prayer-card > .eyebrow {
+  margin-bottom: 10px;
+}
+
+.next-prayer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.next-prayer-place {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px var(--green-soft);
+  animation: pulse 1.8s ease infinite;
+}
+
+.next-prayer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.next-prayer-main h3 {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.next-prayer-time {
+  margin: 2px 0 2px;
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.next-prayer-date {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.prayer-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  flex: none;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold) var(--ring, 0%), var(--track) 0);
+}
+
+.prayer-ring::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--panel);
+}
+
+.prayer-ring > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.prayer-ring strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.prayer-ring span {
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.next-prayer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.open-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.next-prayer-card.compact {
+  padding: 16px;
+}
+
+.next-prayer-card.compact .next-prayer-time {
+  font-size: 32px;
+}
+
+/* ---------- Surah card ---------- */
+
+.surah-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 13px;
+  border-radius: 15px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.surah-card:hover {
+  border-color: color-mix(in srgb, var(--gold) 34%, var(--line));
+  background: var(--panel-2);
+  transform: translateY(-2px);
+}
+
+.surah-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.surah-number {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 800;
+  background:
+    linear-gradient(135deg, var(--gold-soft), transparent),
+    var(--panel-2);
+  border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line));
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+.surah-number span {
+  font-variant-numeric: tabular-nums;
+}
+
+.surah-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.surah-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.surah-name-row strong {
+  font-size: 14px;
+  font-weight: 750;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.surah-arabic {
+  margin-left: auto;
+  font-family: var(--font-arabic);
+  font-size: 16px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.surah-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.surah-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0.35;
+  transition: opacity 0.18s ease;
+}
+
+.surah-card:hover .surah-actions {
+  opacity: 1;
+}
+
+.surah-action {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--muted);
+  transition:
+    color 0.16s ease,
+    background 0.16s ease;
+}
+
+.surah-action:hover {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+
+/* ---------- Ayah card ---------- */
+
+.ayah-card {
+  position: relative;
+  padding: 20px 22px 15px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 72%, transparent);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+  scroll-margin-top: 90px;
+}
+
+.ayah-card:hover {
+  border-color: var(--line-strong);
+}
+
+.ayah-card.active {
+  border-color: color-mix(in srgb, var(--gold) 48%, transparent);
+  background: linear-gradient(160deg, var(--gold-soft), color-mix(in srgb, var(--panel) 88%, transparent) 42%);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 16%, transparent), var(--shadow-soft);
+}
+
+.ayah-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ayah-number {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+  gap: 5px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.ayah-number.active {
+  border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.playing-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.playing-bars i {
+  display: block;
+  width: 2px;
+  height: 6px;
+  border-radius: 2px;
+  background: currentColor;
+  animation: bars 0.9s ease-in-out infinite;
+}
+
+.playing-bars i:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.playing-bars i:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.ayah-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sajda-badge {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.ayah-head-actions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.ayah-card .quran-text {
+  font-size: clamp(23px, 2.4vw, 31px);
+  margin: 4px 2px 14px;
+}
+
+.ayah-translation {
+  padding-top: 13px;
+  border-top: 1px dashed var(--line);
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--text-soft);
+}
+
+.ayah-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 13px;
+  flex-wrap: wrap;
+}
+
+.ayah-ref {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.ayah-tools {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--muted);
+  transition:
+    color 0.16s ease,
+    background 0.16s ease;
+}
+
+.tool-link:hover {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+
+/* ---------- Prayer figure ---------- */
+
+.prayer-figure {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  color: var(--gold);
+}
+
+.prayer-figure svg {
+  width: 100%;
+  max-width: 190px;
+  height: auto;
+}
+
+.figure-takbir svg,
+.figure-qiyam svg {
+  animation: float-slow 5s ease-in-out infinite;
+}

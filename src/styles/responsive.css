@@ -1,0 +1,750 @@
+/* =========================================================
+   Moslashuvchan ko'rinish
+   ========================================================= */
+
+@media (max-width: 1280px) {
+  .surah-grid.wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rakat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1120px) {
+  .memorize-layout {
+    grid-template-columns: 320px minmax(0, 1fr);
+  }
+
+  .prayer-time-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .reading-words-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .harakat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Tablet / mobile navigation ---------- */
+
+@media (max-width: 1024px) {
+  .app-shell {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    height: auto;
+    min-height: calc(64px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) 18px 0;
+    background: var(--header-blur);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+  }
+
+  .mobile-header .logo-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+  }
+
+  .mobile-header .logo-text strong {
+    font-size: 23px;
+  }
+
+  .mobile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobile-header-actions .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .content {
+    padding: 24px 18px 160px;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 75;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 5px;
+    border-radius: 18px;
+    border: 1px solid var(--line-strong);
+    background: color-mix(in srgb, var(--panel-2) 92%, transparent);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(20px);
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 2px;
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 8.5px;
+    font-weight: 700;
+    transition:
+      color 0.18s ease,
+      background 0.18s ease;
+  }
+
+  .bottom-nav-item svg {
+    flex: none;
+  }
+
+  .bottom-nav-item.active {
+    color: var(--gold);
+    background: var(--gold-soft);
+  }
+
+  .audio-dock {
+    left: 50%;
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    width: calc(100vw - 24px);
+    max-width: 720px;
+  }
+
+  .toast-stack {
+    right: 12px;
+    bottom: calc(170px + env(safe-area-inset-bottom));
+    width: min(360px, calc(100vw - 24px));
+  }
+}
+
+/* ---------- Narrow tablets ---------- */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .hero-side {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+    align-items: stretch;
+  }
+
+  .hero-date {
+    grid-column: span 2;
+  }
+
+  .hero-qibla {
+    align-self: end;
+  }
+
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .surah-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .memorize-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .memorize-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+
+  .memorize-panel .panel-heading,
+  .memorize-panel .btn-wide,
+  .memorize-panel .panel-note,
+  .memorize-panel .range-summary {
+    grid-column: span 2;
+  }
+
+  .memorize-bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .prayer-top-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .qibla-card {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .qibla-head {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    right: 18px;
+    width: auto;
+  }
+
+  .qibla-card {
+    position: relative;
+    padding-top: 40px;
+  }
+
+  .qibla-card > p {
+    max-width: 220px;
+    text-align: left;
+  }
+
+  .settings-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .account-card,
+  .settings-footer {
+    grid-column: span 1;
+  }
+
+  .learn-intro {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .salah-step {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .duas-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rakat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rakat-info-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quiz-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alphabet-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rules-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .prayer-time-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 20px 14px 154px;
+  }
+
+  .reader-content {
+    padding-top: 14px;
+  }
+
+  .page-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .page-head-stat {
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+    gap: 10px;
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  .page-head-stat strong {
+    font-size: 13px;
+  }
+
+  .page-head-stat span {
+    margin-left: auto;
+  }
+
+  .hero {
+    padding: 22px 20px;
+    border-radius: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 8vw, 2.6rem);
+    max-width: none;
+  }
+
+  .hero-arabic {
+    margin-top: 16px;
+  }
+
+  .hero-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-date {
+    grid-column: span 1;
+  }
+
+  .hero-stats {
+    margin-top: 22px;
+  }
+
+  .feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .surah-grid,
+  .surah-grid.wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .surah-actions {
+    opacity: 1;
+  }
+
+  .filter-bar {
+    align-items: stretch;
+  }
+
+  .search-field {
+    flex-basis: 100%;
+  }
+
+  .segmented {
+    width: 100%;
+  }
+
+  .segmented button {
+    flex: 1;
+  }
+
+  .memorize-panel {
+    display: flex;
+  }
+
+  .range-summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stage-current {
+    min-height: 240px;
+    padding: 18px 4px 10px;
+  }
+
+  .stage-arabic {
+    font-size: clamp(21px, 5.5vw, 28px);
+  }
+
+  .stage-controls {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .zanjir-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alphabet-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .letters-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .harakat-grid,
+  .reading-words-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quiz-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quiz-letter {
+    font-size: 70px;
+  }
+
+  .prayer-time-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notifications-head {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .notification-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .notification-options.compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .calendar-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .location-bar {
+    align-items: stretch;
+  }
+
+  .location-main {
+    width: 100%;
+  }
+
+  .location-select {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .location-bar > .btn {
+    flex: 1;
+  }
+
+  .salah-step {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .salah-step-visual {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    min-height: 140px;
+  }
+
+  .salah-step-visual .prayer-figure {
+    max-width: 150px;
+  }
+
+  .learn-intro {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .learn-progress {
+    flex-direction: row;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .learn-progress-ring {
+    width: 54px;
+    height: 54px;
+  }
+
+  .learn-progress-ring strong {
+    font-size: 12px;
+  }
+
+  .rakat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .settings-card {
+    padding: 18px;
+  }
+
+  .account-signed {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .settings-footer {
+    padding-top: 18px;
+  }
+
+  .letter-modal-top {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 14px;
+    padding-right: 24px;
+  }
+
+  .letter-big {
+    width: 96px;
+    height: 96px;
+    font-size: 62px;
+    border-radius: 18px;
+  }
+
+  .letter-modal-top h2 span {
+    display: block;
+    margin-left: 0;
+  }
+
+  .forms-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+
+  .form-glyph {
+    font-size: 24px;
+  }
+
+  .audio-dock-extra .dock-pill,
+  .audio-dock-extra > a {
+    display: none;
+  }
+
+  .audio-dock-title p {
+    display: none;
+  }
+
+  .audio-dock {
+    padding: 10px 12px 7px;
+  }
+
+  .audio-dock-top {
+    gap: 8px;
+  }
+
+  .ayah-card {
+    padding: 16px 16px 12px;
+  }
+
+  .ayah-card .quran-text {
+    font-size: clamp(21px, 6vw, 27px);
+  }
+
+  .ayah-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ayah-tools {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .reader-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .reader-topbar-actions {
+    width: 100%;
+  }
+
+  .reader-topbar-actions .btn {
+    flex: 1;
+  }
+
+  .surah-hero {
+    border-radius: 22px;
+    padding: 24px 16px;
+  }
+
+  .surah-hero-meta {
+    gap: 7px 12px;
+  }
+
+  .install-banner {
+    flex-wrap: wrap;
+  }
+
+  .install-banner .btn {
+    margin-left: 0;
+  }
+
+  .install-banner .toast-close {
+    margin-left: auto;
+  }
+
+  .toast-stack {
+    right: 10px;
+    bottom: calc(168px + env(safe-area-inset-bottom));
+    width: calc(100vw - 20px);
+  }
+
+  .next-prayer-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .bottom-nav {
+    left: 8px;
+    right: 8px;
+  }
+
+  .bottom-nav-item {
+    font-size: 8px;
+  }
+
+  .settings-footer {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-stats {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats strong {
+    font-size: 19px;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+  }
+
+  .hero-side {
+    gap: 8px;
+  }
+
+  .prayer-next-main {
+    gap: 8px;
+  }
+
+  .prayer-arc {
+    width: 104px;
+    height: 104px;
+  }
+
+  .prayer-arc svg {
+    width: 104px;
+    height: 104px;
+  }
+
+  .qibla-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qibla-card > p {
+    text-align: center;
+    max-width: none;
+  }
+
+  .qibla-head {
+    position: static;
+    width: 100%;
+  }
+
+  .qibla-card {
+    padding-top: 20px;
+  }
+
+  .letters-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .letter-glyph {
+    font-size: 38px;
+  }
+
+  .letter-modal {
+    padding: 18px;
+  }
+
+  .letter-modal-top {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .letter-big {
+    margin: 0 auto;
+  }
+
+  .letter-pronounce {
+    justify-content: center;
+  }
+
+  .forms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .example-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rakat-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .prayer-time-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .prayer-time-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .prayer-time-item em {
+    margin-left: auto;
+  }
+
+  .prayer-time-badge {
+    position: static;
+    margin-left: 4px;
+  }
+
+  .learn-tabs button {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .stage-controls .btn {
+    width: 100%;
+  }
+
+  .auth-field {
+    height: 41px;
+  }
+
+  .step-count {
+    font-size: 8px;
+  }
+}
