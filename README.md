@@ -20,6 +20,7 @@ Ilova **Vite + React + TypeScript** asosida yozilgan, **PWA** sifatida telefonga
 - **Sozlamalar** — tungi/yorug‘/tizim mavzusi, lotin/kirill, audio tezligi, azon balandligi, joylashuv, hisoblash usuli.
 - **Saqlash** — sozlamalar, yodlangan oyatlar, xatcho‘plar va oxirgi o‘qilgan joy `localStorage`da. Supabase ulansa, akkaunt orqali bulutda sinxronlanadi.
 - **PWA** — oflayn qobiq va ma’lumotlar, bosh ekranga o‘rnatish, yangilanishlarni avtomatik olish. iOS uchun alohida meta teglar, Android’da tezkor yorliqlar (Qur’on, Yodlash, Namoz) va notch/xavfsiz hudud (safe-area) qo‘llab-quvvatlanadi.
+- **Android APK** — Capacitor asosidagi native qobiq. APK saytning `/yuklab-olish` sahifasidan yuklab olinadi; u ochiq manba kodidan GitHub Actions’da quriladi va release kaliti bilan imzolanadi.
 
 ---
 
@@ -80,7 +81,11 @@ nur-quron/
 ├─ scripts/
 │  ├─ build-data.mjs          # API’lardan ma’lumot yig‘ish
 │  ├─ build-icons.mjs         # Ikonka generatori
+│  ├─ build-android-assets.mjs# Android ikonka va splash
 │  └─ translit.mjs            # Lotin → kirill transliteratsiyasi
+├─ android/                   # Capacitor Android loyihasi (APK)
+├─ assets/                    # Android ikonka/splash manbalari
+├─ .github/workflows/         # APK build (GitHub Actions)
 ├─ src/
 │  ├─ components/             # Layout, AudioDock, AyahCard, NextPrayerCard…
 │  ├─ context/                # Auth, Settings, Player, Prayer
@@ -245,6 +250,67 @@ Production build HTTPS orqali ochilganda brauzer o‘rnatishni taklif qiladi.
 - **Kompyuter / Chrome, Edge:** manzil qatori yonidagi o‘rnatish belgisi.
 
 O‘rnatilgandan so‘ng ilova alohida oynada ochiladi va oflayn rejimda asosiy bo‘limlarni ko‘rsatadi.
+
+---
+
+## Android APK (Play Store’siz o‘rnatish)
+
+APK’ni saytdan yuklab olish mumkin: **[nur-quron.vercel.app/yuklab-olish](https://nur-quron.vercel.app/yuklab-olish)**.
+
+APK **Capacitor** bilan o‘ralgan: ichida `dist/` web ilovasi, Android WebView qobig‘i, ilova ikonkasi va splash ekrani bor. Tashqi CDN’lar (Qur’on audiosi, namoz vaqtlari, shriftlar) uchun internet kerak; qolgan qismi ilova ichida.
+
+### Qanday quriladi?
+
+APK GitHub Actions’da, `ubuntu-latest` runnerida quriladi:
+
+1. `npm ci` va `npm run build`
+2. `npx cap sync android`
+3. `android/gradlew assembleRelease`
+4. `apksigner` bilan imzo tekshiriladi
+5. APK va SHA-256 artefakt sifatida yuklanadi
+
+Qo‘lda ishga tushirish:
+
+```bash
+gh workflow run android-apk.yml --repo Shukurov2009/nur-quron --ref main
+gh run list --repo Shukurov2009/nur-quron --workflow android-apk.yml --limit 1
+gh run download <RUN_ID> --repo Shukurov2009/nur-quron -n nur-quron-apk -D apk
+```
+
+Yoki GitHub’da **Actions → Android APK → Run workflow**.
+
+### Imzolash kaliti
+
+Release APK shaxsiy PKCS12 kalit bilan imzolanadi. Kalit va parol **repozitoriyda saqlanmaydi**:
+
+- Lokal zaxira: `C:\Users\msi\Documents\Nur-APK-signing\` (`nur-release.p12`, `password.txt`).
+- GitHub Secrets: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`.
+
+> Bu papkani yo‘qotmang. Kelgusi versiyalar **bir xil kalit** bilan imzolanishi kerak, aks holda Android yangilanishni o‘rnatmaydi va avvalgi ilovani o‘chirish talab qiladi.
+
+### Versiyani oshirish
+
+`android/app/build.gradle` ichida:
+
+```groovy
+versionCode 2
+versionName "1.0.1"
+```
+
+So‘ng workflow’ni qayta ishga tushiring. Yangi APK’ni `public/download/nur-quron.apk` bilan almashtiring va `src/data/download.ts` dagi versiya, hajm va SHA-256’ni yangilang.
+
+### Play Protect va “virus” ogohlantirishi
+
+- APK uchinchi tomon saytidan emas, shu repozitoriy kodidan quriladi; ichida reklama yoki kuzatuvchi yo‘q.
+- Android yangi/notanish imzolangan ilovalar uchun **Play Protect** ogohlantirishini ko‘rsatishi mumkin. Bu odatiy hol — «Davom etish»ni tanlang.
+- Har bir build’ning SHA-256 xeshi yuklab olish sahifasida va GitHub artefaktida ko‘rsatiladi.
+- Faqat rasmiy manbadan yuklab oling: `nur-quron.vercel.app` yoki GitHub Actions artefakti.
+
+### APK cheklovlari
+
+- Brauzer Web Notifications API’si Android WebView’da cheklangan; azon va ovozli eslatmalar ilova ochiq turganda ishlaydi. Yopilgan ilovaga push uchun FCM/push server kerak.
+- GPS uchun Android joylashuv ruxsati so‘raladi; rad etilsa, shahar qo‘lda tanlanadi.
+- APK’ni yangilash uchun yangi faylni ustiga o‘rnatish kifoya (imzo bir xil bo‘lsa).
 
 ---
 
