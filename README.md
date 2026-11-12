@@ -297,7 +297,13 @@ versionCode 2
 versionName "1.0.1"
 ```
 
-So‘ng workflow’ni qayta ishga tushiring. Yangi APK’ni `public/download/nur-quron.apk` bilan almashtiring va `src/data/download.ts` dagi versiya, hajm va SHA-256’ni yangilang.
+So‘ng workflow’ni qayta ishga tushiring. Yangi APK’ni `public/download/nur-quron.apk` bilan almashtiring va versiya, hajm, SHA-256’ni yangilang:
+
+```bash
+npm run apk:info
+```
+
+Skript APK’dan haqiqiy hajm va SHA-256’ni o‘qib, `src/data/download.ts` va `public/download/nur-quron.apk.sha256` fayllarini avtomatik yangilaydi.
 
 ### Play Protect va “virus” ogohlantirishi
 

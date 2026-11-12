@@ -1,0 +1,3 @@
+# Linux CI uchun shell skriptlari LF bo‘lishi shart
+android/gradlew text eol=lf
+*.sh text eol=lf

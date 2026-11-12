@@ -11,7 +11,8 @@
     "data": "node scripts/build-data.mjs",
     "icons": "node scripts/build-icons.mjs",
     "android:assets": "node scripts/build-android-assets.mjs && capacitor-assets generate --android",
-    "android:sync": "npm run build && cap sync android"
+    "android:sync": "npm run build && cap sync android",
+    "apk:info": "node scripts/update-apk-info.mjs"
   },
   "overrides": {
     "rollup": "npm:@rollup/wasm-node@^4.68.2"
