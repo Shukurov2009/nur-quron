@@ -7,5 +7,11 @@ dist
 *.tsbuildinfo
 .DS_Store
 .vercel
+android/app/release.p12
+android/app/*.keystore
+android/app/*.jks
+*.keystore
+*.jks
+*.p12
 
 .vercel
