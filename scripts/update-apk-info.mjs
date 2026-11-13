@@ -22,7 +22,7 @@ const content = `export const apkInfo = {
   version: '${pkg.version}',
   size: '${size}',
   sha256: '${sha256}',
-  url: '/download/nur-quron.apk',
+  url: 'https://nur-quron.vercel.app/download/nur-quron.apk',
   buildUrl: 'https://github.com/Shukurov2009/nur-quron/actions/workflows/android-apk.yml',
   requirements: 'Android 7.0+',
 }
