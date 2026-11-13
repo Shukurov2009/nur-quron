@@ -272,11 +272,11 @@ export function HomePage() {
             <div>
               <p className="progress-caption">6 236 oyatdan</p>
               <p className="muted">
-                Har kuni kichik bir qadam — katta natijaga olib boradi. Yodlash zanjiri sizga
-                oyatlarni bir-biriga bog‘lab yodlashga yordam beradi.
+                Har kuni kichik qadam — katta natija. Yodlash zanjiri oyatlarni bog‘lab yodlashga
+                yordam beradi.
               </p>
               <Link to="/yodlash" className="btn btn-gold btn-small">
-                Yodlashni davom ettirish <ArrowRight size={15} />
+                Davom etish <ArrowRight size={15} />
               </Link>
             </div>
           </div>
