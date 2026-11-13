@@ -49,6 +49,9 @@ jobs:
       - name: Build web app
         run: npm run build
 
+      - name: Remove download files from APK payload
+        run: rm -rf dist/download
+
       - name: Sync Capacitor
         run: npx cap sync android
 
@@ -79,6 +82,12 @@ jobs:
       - name: Prepare download artifacts
         run: |
           cp android/app/build/outputs/apk/release/app-release.apk nur-quron.apk
+          SIZE=$(stat -c%s nur-quron.apk)
+          echo "APK size: $SIZE bytes"
+          if [ "$SIZE" -gt 9000000 ]; then
+            echo "APK juda katta — ichiga download fayllari qo'shilgan bo'lishi mumkin."
+            exit 1
+          fi
           sha256sum nur-quron.apk | tee nur-quron.apk.sha256
           ls -lh nur-quron.apk
 
